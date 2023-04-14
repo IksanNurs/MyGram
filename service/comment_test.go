@@ -28,6 +28,10 @@ func TestCommentServiceGetOneComment(t *testing.T) {
 			ID: 2,
 		},
 		UserID: 1,
+		InputComment: models.InputComment{
+			Message: "final project dts",
+			PhotoID: 12,
+		},
 	}
 
 	commentRepository.Mock.On("FindById", uint(2)).Return(comment)
@@ -38,7 +42,8 @@ func TestCommentServiceGetOneComment(t *testing.T) {
 	assert.NotNil(t, result)
 
 	assert.Equal(t, comment.GormModel.ID, result.GormModel.ID, "Result has to be '2'")
-	//assert.Equal(t, comment.Title, result.Title, "Result has to be 'Kaca Mata'")
+	assert.Equal(t, comment.InputComment.Message, result.InputComment.Message, "Result has to be 'final project dts'")
+	assert.Equal(t, comment.InputComment.PhotoID, result.InputComment.PhotoID, "Result has to be 12")
 	assert.Equal(t, &comment, result, "Result has to be comment data with id '2'")
 }
 
@@ -59,6 +64,10 @@ func TestCommentServiceGetAllComment(t *testing.T) {
 				ID: 1,
 			},
 			UserID: 2,
+			InputComment: models.InputComment{
+				Message: "final project dts",
+				PhotoID: 12,
+			},
 		},
 
 		{
@@ -66,6 +75,10 @@ func TestCommentServiceGetAllComment(t *testing.T) {
 				ID: 2,
 			},
 			UserID: 2,
+			InputComment: models.InputComment{
+				Message: "showcase",
+				PhotoID: 123,
+			},
 		},
 	}
 	commentRepository.Mock.On("FindAll").Return(comment)

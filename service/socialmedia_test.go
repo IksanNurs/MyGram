@@ -28,6 +28,10 @@ func TestSocialMediaServiceGetOneSocialMedia(t *testing.T) {
 			ID: 2,
 		},
 		UserID: 1,
+		InputSocialMedia: models.InputSocialMedia{
+			Name:           "IG",
+			SocialMediaUrl: "https://instagram.com/ramhat",
+		},
 	}
 
 	socialmediaRepository.Mock.On("FindById", uint(2)).Return(socialmedia)
@@ -59,6 +63,10 @@ func TestSocialMediaServiceGetAllSocialMedia(t *testing.T) {
 				ID: 1,
 			},
 			UserID: 2,
+			InputSocialMedia: models.InputSocialMedia{
+				Name:           "IG",
+				SocialMediaUrl: "https://instagram.com/ramhat",
+			},
 		},
 
 		{
@@ -66,6 +74,10 @@ func TestSocialMediaServiceGetAllSocialMedia(t *testing.T) {
 				ID: 2,
 			},
 			UserID: 2,
+			InputSocialMedia: models.InputSocialMedia{
+				Name:           "IG",
+				SocialMediaUrl: "https://instagram.com/budi",
+			},
 		},
 	}
 	socialmediaRepository.Mock.On("FindAll").Return(socialmedia)

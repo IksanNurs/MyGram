@@ -28,6 +28,11 @@ func TestPhotoServiceGetOnePhoto(t *testing.T) {
 			ID: 2,
 		},
 		UserID: 1,
+		InputPhoto: models.InputPhoto{
+			Title:    "alam",
+			Caption:  nil,
+			PhotoUrl: "https://belajarbaikdarialam.pg",
+		},
 	}
 
 	photoRepository.Mock.On("FindById", uint(2)).Return(photo)
@@ -53,12 +58,18 @@ func TestPhotoServiceGetAllPhotoNotFound(t *testing.T) {
 }
 
 func TestPhotoServiceGetAllPhoto(t *testing.T) {
+	var caption="politik bagian dari perjuangan"
 	photo := []models.Photo{
 		{
 			GormModel: models.GormModel{
 				ID: 1,
 			},
 			UserID: 2,
+			InputPhoto: models.InputPhoto{
+				Title:    "alam",
+				Caption:  nil,
+				PhotoUrl: "https://belajarbaikdarialam.pg",
+			},
 		},
 
 		{
@@ -66,6 +77,11 @@ func TestPhotoServiceGetAllPhoto(t *testing.T) {
 				ID: 2,
 			},
 			UserID: 2,
+			InputPhoto: models.InputPhoto{
+				Title:    "politik",
+				Caption:  &caption,
+				PhotoUrl: "https://belajarbaikdarialam.pg",
+			},
 		},
 	}
 	photoRepository.Mock.On("FindAll").Return(photo)

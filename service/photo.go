@@ -20,17 +20,17 @@ func NewPhotoService(repository repository.PhotoRepository) *PhotoService {
 }
 
 func (service *PhotoService) GetOnePhoto(id uint) (*models.Photo, error) {
-	comment := service.Repository.FindById(id)
-	if comment == nil {
-		return comment, errors.New("comment not found")
+	photo := service.Repository.FindById(id)
+	if photo == nil {
+		return photo, errors.New("photo not found")
 	}
-	return comment, nil
+	return photo, nil
 }
 
 func (service *PhotoService) GetAllPhoto() (*[]models.Photo, error) {
-	comment := service.Repository.FindAll()
-	if comment == nil {
-		return comment, errors.New("comment not found")
+	photo := service.Repository.FindAll()
+	if photo == nil {
+		return photo, errors.New("photo not found")
 	}
-	return comment, nil
+	return photo, nil
 }

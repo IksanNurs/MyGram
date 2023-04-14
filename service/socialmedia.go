@@ -20,17 +20,17 @@ func NewSocialMediaService(repository repository.SocialMediaRepository) *SocialM
 }
 
 func (service *SocialMediaService) GetOneSocialMedia(id uint) (*models.SocialMedia, error) {
-	comment := service.Repository.FindById(id)
-	if comment == nil {
-		return comment, errors.New("comment not found")
+	socialmedia := service.Repository.FindById(id)
+	if socialmedia == nil {
+		return socialmedia, errors.New("socialmedia not found")
 	}
-	return comment, nil
+	return socialmedia, nil
 }
 
 func (service *SocialMediaService) GetAllSocialMedia() (*[]models.SocialMedia, error) {
-	comment := service.Repository.FindAll()
-	if comment == nil {
-		return comment, errors.New("comment not found")
+	socialmedia := service.Repository.FindAll()
+	if socialmedia == nil {
+		return socialmedia, errors.New("socialmedia not found")
 	}
-	return comment, nil
+	return socialmedia, nil
 }
