@@ -30,6 +30,7 @@ func NewSocialMediaController(Service service.SService) *SocialMediaController {
 // @Param models.InputSocialMedia body models.InputSocialMedia true "create socialmedia"
 // @Success 200 {object} models.SocialMedia
 // @Router /socialmedias [post]
+// @Security Bearer 
 func (pc *SocialMediaController) CreateSocialMedia(c *gin.Context) {
 	db := database.GetDB()
 	userData := c.MustGet("userData").(jwt.MapClaims)
@@ -75,6 +76,7 @@ func (pc *SocialMediaController) CreateSocialMedia(c *gin.Context) {
 // @Param socialmediaId path int true "ID of the socialmedia to be updated"
 // @Success 200 {object} models.SocialMedia
 // @Router /socialmedias/{socialmediaId} [put]
+// @Security Bearer 
 func (pc *SocialMediaController) UpdateSocialMedia(c *gin.Context) {
 	db := database.GetDB()
 	userData := c.MustGet("userData").(jwt.MapClaims)
@@ -119,6 +121,7 @@ func (pc *SocialMediaController) UpdateSocialMedia(c *gin.Context) {
 // @Accept json
 // @Success 200 {object} models.SocialMedia
 // @Router /socialmedias [get]
+// @Security Bearer 
 func (pc *SocialMediaController) GetAllSocialMedia(ctx *gin.Context) {
 	socialmedia, err := pc.Service.GetAllSocialMedia()
 	if err != nil {
@@ -140,6 +143,7 @@ func (pc *SocialMediaController) GetAllSocialMedia(ctx *gin.Context) {
 // @Param  socialmediaId path int true "ID of the socialmedia"
 // @Success 200 {object} models.SocialMedia
 // @Router /socialmedias/{socialmediaId} [get]
+// @Security Bearer 
 func (pc *SocialMediaController) GetOneSocialMedia(ctx *gin.Context) {
 	socialmediaID, _ := strconv.Atoi(ctx.Param("socialmediaId"))
 	socialmedia, err := pc.Service.GetOneSocialMedia(uint(socialmediaID))
@@ -163,6 +167,7 @@ func (pc *SocialMediaController) GetOneSocialMedia(ctx *gin.Context) {
 // @Param socialmediaId path int true "ID of the socialmedia to be deleted"
 // @Success 200 "Ok"
 // @Router /socialmedias/{socialmediaId} [delete]
+// @Security Bearer 
 func (pc *SocialMediaController) DeleteSocialMedia(c *gin.Context) {
 	db := database.GetDB()
 	userData := c.MustGet("userData").(jwt.MapClaims)

@@ -16,6 +16,11 @@
     "paths": {
         "/comments": {
             "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Get details of all comment",
                 "consumes": [
                     "application/json"
@@ -34,6 +39,11 @@
                 }
             },
             "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Post details of comment corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -68,6 +78,11 @@
         },
         "/comments/{commentId}": {
             "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Get details of comment corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -98,6 +113,11 @@
                 }
             },
             "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Update the comment corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -128,6 +148,11 @@
                 }
             },
             "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Delete the book corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -180,6 +205,11 @@
                 }
             },
             "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Post details of photo corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -214,6 +244,11 @@
         },
         "/photos/{photoId}": {
             "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Get details of photo corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -244,6 +279,11 @@
                 }
             },
             "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Update the photo corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -274,6 +314,11 @@
                 }
             },
             "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Delete the book corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -303,6 +348,11 @@
         },
         "/socialmedias": {
             "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Get details of all socialmedia",
                 "consumes": [
                     "application/json"
@@ -321,6 +371,11 @@
                 }
             },
             "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Post details of socialmedia corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -355,6 +410,11 @@
         },
         "/socialmedias/{socialmediaId}": {
             "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Get details of socialmedia corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -385,6 +445,11 @@
                 }
             },
             "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Update the socialmedia corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -415,6 +480,11 @@
                 }
             },
             "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Delete the book corresponding to the input Id",
                 "consumes": [
                     "application/json"

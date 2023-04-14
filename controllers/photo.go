@@ -30,6 +30,7 @@ func NewPhotoController(Service service.PService) *PhotoController {
 // @Param models.InputPhoto body models.InputPhoto true "create photo"
 // @Success 200 {object} models.Photo
 // @Router /photos [post]
+// @Security Bearer 
 func (pc *PhotoController) CreatePhoto(c *gin.Context) {
 	db := database.GetDB()
 	userData := c.MustGet("userData").(jwt.MapClaims)
@@ -75,6 +76,7 @@ func (pc *PhotoController) CreatePhoto(c *gin.Context) {
 // @Param photoId path int true "ID of the photo to be updated"
 // @Success 200 {object} models.Photo
 // @Router /photos/{photoId} [put]
+// @Security Bearer 
 func (pc *PhotoController) UpdatePhoto(c *gin.Context) {
 	db := database.GetDB()
 	userData := c.MustGet("userData").(jwt.MapClaims)
@@ -141,6 +143,7 @@ func (pc *PhotoController) GetAllPhoto(ctx *gin.Context) {
 // @Param  photoId path int true "ID of the photo"
 // @Success 200 {object} models.Photo
 // @Router /photos/{photoId} [get]
+// @Security Bearer 
 func (pc *PhotoController) GetOnePhoto(ctx *gin.Context) {
 	photoID, _ := strconv.Atoi(ctx.Param("photoId"))
 	photo, err := pc.Service.GetOnePhoto(uint(photoID))
@@ -163,6 +166,7 @@ func (pc *PhotoController) GetOnePhoto(ctx *gin.Context) {
 // @Param photoId path int true "ID of the photo to be deleted"
 // @Success 200 "Ok"
 // @Router /photos/{photoId} [delete]
+// @Security Bearer 
 func (pc *PhotoController) DeletePhoto(c *gin.Context) {
 	db := database.GetDB()
 	userData := c.MustGet("userData").(jwt.MapClaims)

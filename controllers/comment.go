@@ -30,6 +30,7 @@ func NewCommentController(Service service.CService) *CommentController {
 // @Param models.InputComment body models.InputComment true "create comment"
 // @Success 200 {object} models.Comment
 // @Router /comments [post]
+// @Security Bearer 
 func (pc *CommentController) CreateComment(c *gin.Context) {
 	db := database.GetDB()
 	userData := c.MustGet("userData").(jwt.MapClaims)
@@ -75,6 +76,7 @@ func (pc *CommentController) CreateComment(c *gin.Context) {
 // @Param commentId path int true "ID of the comment to be updated"
 // @Success 200 {object} models.Comment
 // @Router /comments/{commentId} [put]
+// @Security Bearer 
 func (pc *CommentController) UpdateComment(c *gin.Context) {
 	db := database.GetDB()
 	userData := c.MustGet("userData").(jwt.MapClaims)
@@ -119,6 +121,7 @@ func (pc *CommentController) UpdateComment(c *gin.Context) {
 // @Accept json
 // @Success 200 {object} models.Comment
 // @Router /comments [get]
+// @Security Bearer 
 func (pc *CommentController) GetAllComment(ctx *gin.Context) {
 	comment, err := pc.Service.GetAllComment()
 	if err != nil {
@@ -139,6 +142,7 @@ func (pc *CommentController) GetAllComment(ctx *gin.Context) {
 // @Param  commentId path int true "ID of the comment"
 // @Success 200 {object} models.Comment
 // @Router /comments/{commentId} [get]
+// @Security Bearer 
 func (pc *CommentController) GetOneComment(ctx *gin.Context) {
 	commentID, _ := strconv.Atoi(ctx.Param("commentId"))
 	comment, err := pc.Service.GetOneComment(uint(commentID))
@@ -162,6 +166,7 @@ func (pc *CommentController) GetOneComment(ctx *gin.Context) {
 // @Param commentId path int true "ID of the comment to be deleted"
 // @Success 200 "Ok"
 // @Router /comments/{commentId} [delete]
+// @Security Bearer 
 func (pc *CommentController) DeleteComment(c *gin.Context) {
 	db := database.GetDB()
 	userData := c.MustGet("userData").(jwt.MapClaims)

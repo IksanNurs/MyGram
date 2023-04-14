@@ -143,6 +143,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/models.Comment'
+      security:
+      - Bearer: []
       summary: Get details
       tags:
       - comments
@@ -164,6 +166,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/models.Comment'
+      security:
+      - Bearer: []
       summary: Post details for a given Id
       tags:
       - comments
@@ -183,6 +187,8 @@ paths:
       responses:
         "200":
           description: Ok
+      security:
+      - Bearer: []
       summary: Delete comment identified by the given Id
       tags:
       - comments
@@ -203,6 +209,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/models.Comment'
+      security:
+      - Bearer: []
       summary: Get details for a given id
       tags:
       - comments
@@ -223,6 +231,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/models.Comment'
+      security:
+      - Bearer: []
       summary: Update comment identified by the given Id
       tags:
       - comments
@@ -259,6 +269,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/models.Photo'
+      security:
+      - Bearer: []
       summary: Post details for a given Id
       tags:
       - photos
@@ -278,6 +290,8 @@ paths:
       responses:
         "200":
           description: Ok
+      security:
+      - Bearer: []
       summary: Delete photo identified by the given Id
       tags:
       - photos
@@ -298,6 +312,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/models.Photo'
+      security:
+      - Bearer: []
       summary: Get details for a given id
       tags:
       - photos
@@ -318,6 +334,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/models.Photo'
+      security:
+      - Bearer: []
       summary: Update photo identified by the given Id
       tags:
       - photos
@@ -331,6 +349,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/models.SocialMedia'
+      security:
+      - Bearer: []
       summary: Get details
       tags:
       - socialmedias
@@ -352,6 +372,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/models.SocialMedia'
+      security:
+      - Bearer: []
       summary: Post details for a given Id
       tags:
       - socialmedias
@@ -371,6 +393,8 @@ paths:
       responses:
         "200":
           description: Ok
+      security:
+      - Bearer: []
       summary: Delete socialmedia identified by the given Id
       tags:
       - socialmedias
@@ -391,6 +415,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/models.SocialMedia'
+      security:
+      - Bearer: []
       summary: Get details for a given id
       tags:
       - socialmedias
@@ -411,6 +437,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/models.SocialMedia'
+      security:
+      - Bearer: []
       summary: Update socialmedia identified by the given Id
       tags:
       - socialmedias

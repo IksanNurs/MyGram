@@ -25,6 +25,11 @@ const docTemplate = `{
     "paths": {
         "/comments": {
             "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Get details of all comment",
                 "consumes": [
                     "application/json"
@@ -43,6 +48,11 @@ const docTemplate = `{
                 }
             },
             "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Post details of comment corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -77,6 +87,11 @@ const docTemplate = `{
         },
         "/comments/{commentId}": {
             "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Get details of comment corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -107,6 +122,11 @@ const docTemplate = `{
                 }
             },
             "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Update the comment corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -137,6 +157,11 @@ const docTemplate = `{
                 }
             },
             "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Delete the book corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -189,6 +214,11 @@ const docTemplate = `{
                 }
             },
             "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Post details of photo corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -223,6 +253,11 @@ const docTemplate = `{
         },
         "/photos/{photoId}": {
             "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Get details of photo corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -253,6 +288,11 @@ const docTemplate = `{
                 }
             },
             "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Update the photo corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -283,6 +323,11 @@ const docTemplate = `{
                 }
             },
             "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Delete the book corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -312,6 +357,11 @@ const docTemplate = `{
         },
         "/socialmedias": {
             "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Get details of all socialmedia",
                 "consumes": [
                     "application/json"
@@ -330,6 +380,11 @@ const docTemplate = `{
                 }
             },
             "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Post details of socialmedia corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -364,6 +419,11 @@ const docTemplate = `{
         },
         "/socialmedias/{socialmediaId}": {
             "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Get details of socialmedia corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -394,6 +454,11 @@ const docTemplate = `{
                 }
             },
             "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Update the socialmedia corresponding to the input Id",
                 "consumes": [
                     "application/json"
@@ -424,6 +489,11 @@ const docTemplate = `{
                 }
             },
             "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Delete the book corresponding to the input Id",
                 "consumes": [
                     "application/json"
