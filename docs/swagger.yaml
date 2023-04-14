@@ -1,0 +1,459 @@
+definitions:
+  models.Comment:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      message:
+        type: string
+      photo_id:
+        type: integer
+      updated_at:
+        type: string
+      user:
+        $ref: '#/definitions/models.User'
+      user_id:
+        type: integer
+    type: object
+  models.InputComment:
+    properties:
+      message:
+        type: string
+      photo_id:
+        type: integer
+    type: object
+  models.InputPhoto:
+    properties:
+      caption:
+        type: string
+      photo_url:
+        type: string
+      title:
+        type: string
+    type: object
+  models.InputSocialMedia:
+    properties:
+      name:
+        type: string
+      social_media_url:
+        type: string
+    type: object
+  models.InputUser:
+    properties:
+      age:
+        type: integer
+      email:
+        type: string
+      full_name:
+        type: string
+      password:
+        type: string
+    type: object
+  models.LoginUser:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    type: object
+  models.Photo:
+    properties:
+      caption:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: integer
+      photo_url:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      user:
+        $ref: '#/definitions/models.User'
+      user_id:
+        type: integer
+    type: object
+  models.SocialMedia:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      social_media_url:
+        type: string
+      updated_at:
+        type: string
+      user:
+        $ref: '#/definitions/models.User'
+      user_id:
+        type: integer
+    type: object
+  models.User:
+    properties:
+      age:
+        type: integer
+      comments:
+        items:
+          $ref: '#/definitions/models.Comment'
+        type: array
+      created_at:
+        type: string
+      email:
+        type: string
+      full_name:
+        type: string
+      id:
+        type: integer
+      password:
+        type: string
+      photo:
+        items:
+          $ref: '#/definitions/models.Photo'
+        type: array
+      social_media:
+        items:
+          $ref: '#/definitions/models.SocialMedia'
+        type: array
+      updated_at:
+        type: string
+    type: object
+host: localhost:8086
+info:
+  contact:
+    email: soberkader@swagger.io
+    name: API Support
+  description: This is a sample service for managing books
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/license/LICENSE-2.0.html
+  title: MyGram API
+paths:
+  /comments:
+    get:
+      consumes:
+      - application/json
+      description: Get details of all comment
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Comment'
+      summary: Get details
+      tags:
+      - comments
+    post:
+      consumes:
+      - application/json
+      description: Post details of comment corresponding to the input Id
+      parameters:
+      - description: create comment
+        in: body
+        name: models.InputComment
+        required: true
+        schema:
+          $ref: '#/definitions/models.InputComment'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Comment'
+      summary: Post details for a given Id
+      tags:
+      - comments
+  /comments/{commentId}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete the book corresponding to the input Id
+      parameters:
+      - description: ID of the comment to be deleted
+        in: path
+        name: commentId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Ok
+      summary: Delete comment identified by the given Id
+      tags:
+      - comments
+    get:
+      consumes:
+      - application/json
+      description: Get details of comment corresponding to the input Id
+      parameters:
+      - description: ID of the comment
+        in: path
+        name: commentId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Comment'
+      summary: Get details for a given id
+      tags:
+      - comments
+    put:
+      consumes:
+      - application/json
+      description: Update the comment corresponding to the input Id
+      parameters:
+      - description: ID of the comment to be updated
+        in: path
+        name: commentId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Comment'
+      summary: Update comment identified by the given Id
+      tags:
+      - comments
+  /photos:
+    get:
+      consumes:
+      - application/json
+      description: Get details of all photo
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Photo'
+      summary: Get details
+      tags:
+      - photos
+    post:
+      consumes:
+      - application/json
+      description: Post details of photo corresponding to the input Id
+      parameters:
+      - description: create photo
+        in: body
+        name: models.InputPhoto
+        required: true
+        schema:
+          $ref: '#/definitions/models.InputPhoto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Photo'
+      summary: Post details for a given Id
+      tags:
+      - photos
+  /photos/{photoId}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete the book corresponding to the input Id
+      parameters:
+      - description: ID of the photo to be deleted
+        in: path
+        name: photoId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Ok
+      summary: Delete photo identified by the given Id
+      tags:
+      - photos
+    get:
+      consumes:
+      - application/json
+      description: Get details of photo corresponding to the input Id
+      parameters:
+      - description: ID of the photo
+        in: path
+        name: photoId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Photo'
+      summary: Get details for a given id
+      tags:
+      - photos
+    put:
+      consumes:
+      - application/json
+      description: Update the photo corresponding to the input Id
+      parameters:
+      - description: ID of the photo to be updated
+        in: path
+        name: photoId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Photo'
+      summary: Update photo identified by the given Id
+      tags:
+      - photos
+  /socialmedias:
+    get:
+      consumes:
+      - application/json
+      description: Get details of all socialmedia
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.SocialMedia'
+      summary: Get details
+      tags:
+      - socialmedias
+    post:
+      consumes:
+      - application/json
+      description: Post details of socialmedia corresponding to the input Id
+      parameters:
+      - description: create socialmedia
+        in: body
+        name: models.InputSocialMedia
+        required: true
+        schema:
+          $ref: '#/definitions/models.InputSocialMedia'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.SocialMedia'
+      summary: Post details for a given Id
+      tags:
+      - socialmedias
+  /socialmedias/{socialmediaId}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete the book corresponding to the input Id
+      parameters:
+      - description: ID of the socialmedia to be deleted
+        in: path
+        name: socialmediaId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Ok
+      summary: Delete socialmedia identified by the given Id
+      tags:
+      - socialmedias
+    get:
+      consumes:
+      - application/json
+      description: Get details of socialmedia corresponding to the input Id
+      parameters:
+      - description: ID of the socialmedia
+        in: path
+        name: socialmediaId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.SocialMedia'
+      summary: Get details for a given id
+      tags:
+      - socialmedias
+    put:
+      consumes:
+      - application/json
+      description: Update the socialmedia corresponding to the input Id
+      parameters:
+      - description: ID of the socialmedia to be updated
+        in: path
+        name: socialmediaId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.SocialMedia'
+      summary: Update socialmedia identified by the given Id
+      tags:
+      - socialmedias
+  /users/login:
+    post:
+      consumes:
+      - application/json
+      description: Post details of user corresponding to the input Id
+      parameters:
+      - description: create user
+        in: body
+        name: models.LoginUser
+        required: true
+        schema:
+          $ref: '#/definitions/models.LoginUser'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+      summary: Post details for a given Id
+      tags:
+      - users
+  /users/register:
+    post:
+      consumes:
+      - application/json
+      description: Post details of user corresponding to the input Id
+      parameters:
+      - description: create user
+        in: body
+        name: models.InputUser
+        required: true
+        schema:
+          $ref: '#/definitions/models.InputUser'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+      summary: Post details for a given Id
+      tags:
+      - users
+swagger: "2.0"
