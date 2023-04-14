@@ -29,7 +29,7 @@ var (
 // @contact.email soberkader@swagger.io
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/license/LICENSE-2.0.html
-// @host localhost:8080
+// @host https://mygram-production-ab05.up.railway.app
 // @BasePath/
 func StartApp() *gin.Engine {
 	db := database.GetDB()
