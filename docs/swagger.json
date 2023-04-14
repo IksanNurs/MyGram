@@ -12,7 +12,7 @@
             "url": "http://www.apache.org/license/LICENSE-2.0.html"
         }
     },
-    "host": "localhost:8086",
+    "host": "https://mygram-production-ab05.up.railway.app",
     "paths": {
         "/comments": {
             "get": {
@@ -519,6 +519,9 @@
                 "message": {
                     "type": "string"
                 },
+                "photo": {
+                    "$ref": "#/definitions/models.Photo"
+                },
                 "photo_id": {
                     "type": "integer"
                 },
@@ -675,9 +678,6 @@
                 },
                 "id": {
                     "type": "integer"
-                },
-                "password": {
-                    "type": "string"
                 },
                 "photo": {
                     "type": "array",

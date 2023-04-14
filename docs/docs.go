@@ -528,6 +528,9 @@ const docTemplate = `{
                 "message": {
                     "type": "string"
                 },
+                "photo": {
+                    "$ref": "#/definitions/models.Photo"
+                },
                 "photo_id": {
                     "type": "integer"
                 },
@@ -685,9 +688,6 @@ const docTemplate = `{
                 "id": {
                     "type": "integer"
                 },
-                "password": {
-                    "type": "string"
-                },
                 "photo": {
                     "type": "array",
                     "items": {
@@ -711,7 +711,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "",
-	Host:             "localhost:8086",
+	Host:             "https://mygram-production-ab05.up.railway.app",
 	BasePath:         "",
 	Schemes:          []string{},
 	Title:            "MyGram API",
