@@ -74,6 +74,7 @@ func (pc *PhotoController) CreatePhoto(c *gin.Context) {
 // @Accept json
 // @Produce json
 // @Param photoId path int true "ID of the photo to be updated"
+// @Param models.InputPhoto body models.InputPhoto true "update photo"
 // @Success 200 {object} models.Photo
 // @Router /photos/{photoId} [put]
 // @Security Bearer 
