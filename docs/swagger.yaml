@@ -327,6 +327,12 @@ paths:
         name: photoId
         required: true
         type: integer
+      - description: update photo
+        in: body
+        name: models.InputPhoto
+        required: true
+        schema:
+          $ref: '#/definitions/models.InputPhoto'
       produces:
       - application/json
       responses:

@@ -311,6 +311,15 @@ const docTemplate = `{
                         "name": "photoId",
                         "in": "path",
                         "required": true
+                    },
+                    {
+                        "description": "update photo",
+                        "name": "models.InputPhoto",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.InputPhoto"
+                        }
                     }
                 ],
                 "responses": {
