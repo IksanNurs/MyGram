@@ -47,8 +47,8 @@ func StartApp() *gin.Engine {
 	socialmediaController := controllers.NewSocialMediaController(socialmediaService)
 
 	r := gin.Default()
-	r.GET("/coba", func(ctx *gin.Context) {
-		ctx.JSON(http.StatusOK, "berhasil")
+	r.GET("/", func(ctx *gin.Context) {
+		ctx.JSON(http.StatusOK, "berhasil hosting")
 	})
 	userRouter := r.Group("/users")
 	{
