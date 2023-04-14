@@ -12,7 +12,7 @@
             "url": "http://www.apache.org/license/LICENSE-2.0.html"
         }
     },
-    "host": "https://mygram-production-ab05.up.railway.app",
+    "host": "mygram-production-ab05.up.railway.app",
     "paths": {
         "/comments": {
             "get": {
