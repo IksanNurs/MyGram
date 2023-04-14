@@ -166,6 +166,11 @@ const docTemplate = `{
         },
         "/photos": {
             "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Get details of all photo",
                 "consumes": [
                     "application/json"
@@ -707,7 +712,8 @@ const docTemplate = `{
         }
     },
     "securityDefinitions": {
-        "BearerAuth": {
+        "Bearer": {
+            "description": "Type \"Bearer\" followed by a space and JWT token",
             "type": "apiKey",
             "name": "Authorization",
             "in": "header"

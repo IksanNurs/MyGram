@@ -236,6 +236,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/models.Photo'
+      security:
+      - Bearer: []
       summary: Get details
       tags:
       - photos
@@ -457,7 +459,8 @@ paths:
       tags:
       - users
 securityDefinitions:
-  BearerAuth:
+  Bearer:
+    description: Type "Bearer" followed by a space and JWT token
     in: header
     name: Authorization
     type: apiKey

@@ -31,9 +31,10 @@ var (
 // @license.url http://www.apache.org/license/LICENSE-2.0.html
 // @host mygram-production-ab05.up.railway.app
 // @BasePath/
-// @securityDefinitions.apikey BearerAuth
+// @securityDefinitions.apikey Bearer
 // @in header
 // @name Authorization
+// @description Type "Bearer" followed by a space and JWT token
 func StartApp() *gin.Engine {
 	db := database.GetDB()
 	//=====

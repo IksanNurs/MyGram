@@ -119,6 +119,7 @@ func (pc *PhotoController) UpdatePhoto(c *gin.Context) {
 // @Accept json
 // @Success 200 {object} models.Photo
 // @Router /photos [get]
+// @Security Bearer 
 func (pc *PhotoController) GetAllPhoto(ctx *gin.Context) {
 	photo, err := pc.Service.GetAllPhoto()
 	if err != nil {
