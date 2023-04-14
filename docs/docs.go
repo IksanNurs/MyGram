@@ -145,6 +145,15 @@ const docTemplate = `{
                         "name": "commentId",
                         "in": "path",
                         "required": true
+                    },
+                    {
+                        "description": "update comment",
+                        "name": "models.InputComment",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.InputComment"
+                        }
                     }
                 ],
                 "responses": {
@@ -486,6 +495,15 @@ const docTemplate = `{
                         "name": "socialmediaId",
                         "in": "path",
                         "required": true
+                    },
+                    {
+                        "description": "update socialmedia",
+                        "name": "models.InputSocialMedia",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.InputSocialMedia"
+                        }
                     }
                 ],
                 "responses": {

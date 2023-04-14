@@ -224,6 +224,12 @@ paths:
         name: commentId
         required: true
         type: integer
+      - description: update comment
+        in: body
+        name: models.InputComment
+        required: true
+        schema:
+          $ref: '#/definitions/models.InputComment'
       produces:
       - application/json
       responses:
@@ -436,6 +442,12 @@ paths:
         name: socialmediaId
         required: true
         type: integer
+      - description: update socialmedia
+        in: body
+        name: models.InputSocialMedia
+        required: true
+        schema:
+          $ref: '#/definitions/models.InputSocialMedia'
       produces:
       - application/json
       responses:

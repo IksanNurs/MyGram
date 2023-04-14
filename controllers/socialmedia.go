@@ -74,6 +74,7 @@ func (pc *SocialMediaController) CreateSocialMedia(c *gin.Context) {
 // @Accept json
 // @Produce json
 // @Param socialmediaId path int true "ID of the socialmedia to be updated"
+// @Param models.InputSocialMedia body models.InputSocialMedia true "update socialmedia"
 // @Success 200 {object} models.SocialMedia
 // @Router /socialmedias/{socialmediaId} [put]
 // @Security Bearer 

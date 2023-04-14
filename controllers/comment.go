@@ -74,6 +74,7 @@ func (pc *CommentController) CreateComment(c *gin.Context) {
 // @Accept json
 // @Produce json
 // @Param commentId path int true "ID of the comment to be updated"
+// @Param models.InputComment body models.InputComment true "update comment"
 // @Success 200 {object} models.Comment
 // @Router /comments/{commentId} [put]
 // @Security Bearer 
