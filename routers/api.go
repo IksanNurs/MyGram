@@ -31,6 +31,8 @@ var (
 // @license.url http://www.apache.org/license/LICENSE-2.0.html
 // @host mygram-production-ab05.up.railway.app
 // @BasePath/
+// @securitydefinitions.oauth2.application OAuth2Application
+// @tokenUrl https://example.com/oauth/token
 func StartApp() *gin.Engine {
 	db := database.GetDB()
 	//=====

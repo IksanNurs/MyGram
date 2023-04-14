@@ -159,11 +159,6 @@ paths:
           $ref: '#/definitions/models.InputComment'
       produces:
       - application/json
-      securityDefinitions:
-      Bearer:
-        type: apiKey
-        name: Authorization
-        in: header
       responses:
         "200":
           description: OK
@@ -461,4 +456,9 @@ paths:
       summary: Post details for a given Id
       tags:
       - users
+securityDefinitions:
+  OAuth2Application:
+    flow: application
+    tokenUrl: https://example.com/oauth/token
+    type: oauth2
 swagger: "2.0"
