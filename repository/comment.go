@@ -21,12 +21,18 @@ func NewCommentRepository(db *gorm.DB) *CRepository {
 
 func (re *CRepository) FindById(id uint) *models.Comment {
 	comment := models.Comment{}
-	re.db.Debug().Joins("User").Joins("Photo").First(&comment, id)
+	err := re.db.Debug().Joins("User").Joins("Photo").First(&comment, id).Error
+	if err != nil {
+		return nil
+	}
 	return &comment
 }
 
 func (re *CRepository) FindAll() *[]models.Comment {
 	comment := []models.Comment{}
-	re.db.Debug().Joins("User").Joins("Photo").Order("id ASC").Find(&comment)
+	err := re.db.Debug().Joins("User").Joins("Photo").Order("id ASC").Find(&comment).Error
+	if err != nil {
+		return nil
+	}
 	return &comment
 }

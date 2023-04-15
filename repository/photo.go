@@ -21,12 +21,18 @@ func NewPhotoRepository(db *gorm.DB) *PRepository {
 
 func (re *PRepository) FindById(id uint) *models.Photo {
 	photo := models.Photo{}
-	re.db.Debug().Joins("User").First(&photo, id)
+	err:=re.db.Debug().Joins("User").First(&photo, id).Error
+	if err!=nil{
+		return nil
+	}
 	return &photo
 }
 
 func (re *PRepository) FindAll() *[]models.Photo {
 	photo := []models.Photo{}
-	re.db.Debug().Joins("User").Order("id ASC").Find(&photo)
+	err:=re.db.Debug().Joins("User").Order("id ASC").Find(&photo).Error
+	if err!=nil{
+		return nil
+	}
 	return &photo
 }

@@ -47,14 +47,14 @@ func TestCommentServiceGetOneComment(t *testing.T) {
 	assert.Equal(t, &comment, result, "Result has to be comment data with id '2'")
 }
 
-func TestCommentServiceGetAllCommentNotFound(t *testing.T) {
+func TestCommentServiceGetAllCommentNotAvailable(t *testing.T) {
 	commentRepository.Mock.On("FindAll").Return(nil)
 
 	comment, err := commentService.GetAllComment()
 
 	assert.Nil(t, comment)
 	assert.NotNil(t, err)
-	assert.Equal(t, "comment not found", err.Error(), "Error response has to be 'comment not found'")
+	assert.Equal(t, "data comment not available", err.Error(), "Error response has to be 'data comment not available'")
 }
 
 func TestCommentServiceGetAllComment(t *testing.T) {

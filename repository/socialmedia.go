@@ -21,12 +21,18 @@ func NewSocialMediaRepository(db *gorm.DB) *SRepository {
 
 func (re *SRepository) FindById(id uint) *models.SocialMedia {
 	socialMedia := models.SocialMedia{}
-	re.db.Debug().Joins("User").First(&socialMedia, id)
+	err:=re.db.Debug().Joins("User").First(&socialMedia, id).Error
+	if err!=nil{
+		return nil
+	}
 	return &socialMedia
 }
 
 func (re *SRepository) FindAll() *[]models.SocialMedia {
 	socialMedia := []models.SocialMedia{}
-	re.db.Debug().Joins("User").Order("id ASC").Find(&socialMedia)
+	err:=re.db.Debug().Joins("User").Order("id ASC").Find(&socialMedia).Error
+		if err!=nil{
+		return nil
+	}
 	return &socialMedia
 }

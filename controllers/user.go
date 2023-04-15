@@ -52,7 +52,7 @@ func UserRegister(c *gin.Context) {
 		return
 	}
 
-	response := helpers.APIResponse("berhasil menambahkan data user", http.StatusOK, user)
+	response := helpers.APIResponse("success register account", http.StatusOK, user)
 	c.JSON(http.StatusCreated, response)
 }
 

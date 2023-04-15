@@ -29,8 +29,8 @@ func (service *PhotoService) GetOnePhoto(id uint) (*models.Photo, error) {
 
 func (service *PhotoService) GetAllPhoto() (*[]models.Photo, error) {
 	photo := service.Repository.FindAll()
-	if photo == nil {
-		return photo, errors.New("photo not found")
+	if photo == nil || len(*photo)==0{
+		return photo, errors.New("data photo not available")
 	}
 	return photo, nil
 }

@@ -63,7 +63,7 @@ func (pc *CommentController) CreateComment(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, response)
 		return
 	}
-	response := helpers.APIResponse("berhasil menambahkan data comment", http.StatusOK, Comment)
+	response := helpers.APIResponse("success add data comment", http.StatusOK, Comment)
 	c.JSON(http.StatusCreated, response)
 }
 
@@ -111,7 +111,7 @@ func (pc *CommentController) UpdateComment(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, response)
 		return
 	}
-	response := helpers.APIResponse("berhasil update data comment "+c.Param("commentId"), http.StatusOK, nil)
+	response := helpers.APIResponse("success update data comment "+c.Param("commentId"), http.StatusOK, nil)
 	c.JSON(http.StatusOK, response)
 }
 
@@ -126,11 +126,11 @@ func (pc *CommentController) UpdateComment(c *gin.Context) {
 func (pc *CommentController) GetAllComment(ctx *gin.Context) {
 	comment, err := pc.Service.GetAllComment()
 	if err != nil {
-		response := helpers.APIResponse(fmt.Sprint("data comment not available:", err), http.StatusBadRequest, nil)
+		response := helpers.APIResponse(err.Error(), http.StatusBadRequest, nil)
 		ctx.AbortWithStatusJSON(http.StatusBadRequest, response)
 		return
 	}
-	response := helpers.APIResponse("berhasil menampilkan semua data comment", http.StatusOK, comment)
+	response := helpers.APIResponse("success show all data comment", http.StatusOK, comment)
 	ctx.JSON(http.StatusOK, response)
 }
 
@@ -153,7 +153,7 @@ func (pc *CommentController) GetOneComment(ctx *gin.Context) {
 		return
 	}
 
-	response := helpers.APIResponse("berhasil menampilkan data comment dengan id "+ctx.Param("commentId"), http.StatusOK, comment)
+	response := helpers.APIResponse("success show data comment with id "+ctx.Param("commentId"), http.StatusOK, comment)
 	ctx.JSON(http.StatusOK, response)
 
 }
@@ -183,6 +183,6 @@ func (pc *CommentController) DeleteComment(c *gin.Context) {
 		c.JSON(http.StatusNotFound, response)
 		return
 	}
-	response := helpers.APIResponse("berhasil menghapus data id "+c.Param("commentId"), http.StatusOK, nil)
+	response := helpers.APIResponse("success delete data comment with id "+c.Param("commentId"), http.StatusOK, nil)
 	c.JSON(http.StatusOK, response)
 }

@@ -47,14 +47,14 @@ func TestPhotoServiceGetOnePhoto(t *testing.T) {
 	assert.Equal(t, &photo, result, "Result has to be photo data with id '2'")
 }
 
-func TestPhotoServiceGetAllPhotoNotFound(t *testing.T) {
+func TestPhotoServiceGetAllPhotoNotAvailable(t *testing.T) {
 	photoRepository.Mock.On("FindAll").Return(nil)
 
 	photo, err := photoService.GetAllPhoto()
 
 	assert.Nil(t, photo)
 	assert.NotNil(t, err)
-	assert.Equal(t, "photo not found", err.Error(), "Error response has to be 'photo not found'")
+	assert.Equal(t, "data photo not available", err.Error(), "Error response has to be 'data photo not available'")
 }
 
 func TestPhotoServiceGetAllPhoto(t *testing.T) {

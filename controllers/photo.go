@@ -63,7 +63,7 @@ func (pc *PhotoController) CreatePhoto(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, response)
 		return
 	}
-	response := helpers.APIResponse("berhasil menambahkan data foto", http.StatusOK, Photo)
+	response := helpers.APIResponse("success add data photo", http.StatusOK, Photo)
 	c.JSON(http.StatusCreated, response)
 }
 
@@ -111,7 +111,7 @@ func (pc *PhotoController) UpdatePhoto(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, response)
 		return
 	}
-	response := helpers.APIResponse("berhasil update data foto "+c.Param("photoId"), http.StatusOK, nil)
+	response := helpers.APIResponse("success update data photo "+c.Param("photoId"), http.StatusOK, nil)
 	c.JSON(http.StatusOK, response)
 }
 
@@ -126,12 +126,12 @@ func (pc *PhotoController) UpdatePhoto(c *gin.Context) {
 func (pc *PhotoController) GetAllPhoto(ctx *gin.Context) {
 	photo, err := pc.Service.GetAllPhoto()
 	if err != nil {
-		response := helpers.APIResponse(fmt.Sprint("data photo not available:", err), http.StatusBadRequest, nil)
+		response := helpers.APIResponse(err.Error(), http.StatusBadRequest, nil)
 		ctx.AbortWithStatusJSON(http.StatusBadRequest, response)
 
 		return
 	}
-	response := helpers.APIResponse("berhasil menampilkan semua data foto", http.StatusOK, photo)
+	response := helpers.APIResponse("success show all data photo", http.StatusOK, photo)
 	ctx.JSON(http.StatusOK, response)
 }
 
@@ -153,7 +153,7 @@ func (pc *PhotoController) GetOnePhoto(ctx *gin.Context) {
 		ctx.AbortWithStatusJSON(http.StatusUnprocessableEntity, response)
 		return
 	}
-	response := helpers.APIResponse("berhasil menampilkan data foto dengan id "+ctx.Param("photoId"), http.StatusOK, photo)
+	response := helpers.APIResponse("success show data photo with id "+ctx.Param("photoId"), http.StatusOK, photo)
 	ctx.JSON(http.StatusOK, response)
 
 }
@@ -183,6 +183,6 @@ func (pc *PhotoController) DeletePhoto(c *gin.Context) {
 		c.JSON(http.StatusNotFound, response)
 		return
 	}
-	response := helpers.APIResponse("berhasil menghapus data id "+c.Param("photoId"), http.StatusOK, nil)
+	response := helpers.APIResponse("success delete data with id "+c.Param("photoId"), http.StatusOK, nil)
 	c.JSON(http.StatusOK, response)
 }

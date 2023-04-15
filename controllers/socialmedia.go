@@ -63,7 +63,7 @@ func (pc *SocialMediaController) CreateSocialMedia(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, response)
 		return
 	}
-	response := helpers.APIResponse("berhasil menambahkan data socialmedia", http.StatusOK, SocialMedia)
+	response := helpers.APIResponse("success add data socialmedia", http.StatusOK, SocialMedia)
 	c.JSON(http.StatusCreated, response)
 }
 
@@ -111,7 +111,7 @@ func (pc *SocialMediaController) UpdateSocialMedia(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, response)
 		return
 	}
-	response := helpers.APIResponse("berhasil update data socialmedia "+c.Param("socialmediaId"), http.StatusOK, nil)
+	response := helpers.APIResponse("success update data socialmedia "+c.Param("socialmediaId"), http.StatusOK, nil)
 	c.JSON(http.StatusOK, response)
 }
 
@@ -126,12 +126,12 @@ func (pc *SocialMediaController) UpdateSocialMedia(c *gin.Context) {
 func (pc *SocialMediaController) GetAllSocialMedia(ctx *gin.Context) {
 	socialmedia, err := pc.Service.GetAllSocialMedia()
 	if err != nil {
-		response := helpers.APIResponse(fmt.Sprint("data socialmedia not available:", err), http.StatusBadRequest, nil)
+		response := helpers.APIResponse(err.Error(), http.StatusBadRequest, nil)
 		ctx.AbortWithStatusJSON(http.StatusBadRequest, response)
 
 		return
 	}
-	response := helpers.APIResponse("berhasil menampilkan semua data socialmedia", http.StatusOK, socialmedia)
+	response := helpers.APIResponse("success show all data socialmedia", http.StatusOK, socialmedia)
 	ctx.JSON(http.StatusOK, response)
 }
 
@@ -154,7 +154,7 @@ func (pc *SocialMediaController) GetOneSocialMedia(ctx *gin.Context) {
 		return
 	}
 
-	response := helpers.APIResponse("berhasil menampilkan data socialmedia dengan id "+ctx.Param("socialmediaId"), http.StatusOK, socialmedia)
+	response := helpers.APIResponse("success show data socialmedia with id "+ctx.Param("socialmediaId"), http.StatusOK, socialmedia)
 	ctx.JSON(http.StatusOK, response)
 
 }
@@ -184,6 +184,6 @@ func (pc *SocialMediaController) DeleteSocialMedia(c *gin.Context) {
 		c.JSON(http.StatusNotFound, response)
 		return
 	}
-	response := helpers.APIResponse("berhasil menghapus data id "+c.Param("socialmediaId"), http.StatusOK, nil)
+	response := helpers.APIResponse("success delete data socialmedia with id "+c.Param("socialmediaId"), http.StatusOK, nil)
 	c.JSON(http.StatusOK, response)
 }

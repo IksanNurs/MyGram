@@ -29,8 +29,8 @@ func (service *SocialMediaService) GetOneSocialMedia(id uint) (*models.SocialMed
 
 func (service *SocialMediaService) GetAllSocialMedia() (*[]models.SocialMedia, error) {
 	socialmedia := service.Repository.FindAll()
-	if socialmedia == nil {
-		return socialmedia, errors.New("socialmedia not found")
+	if socialmedia == nil || len(*socialmedia)==0 {
+		return socialmedia, errors.New("data socialmedia not available")
 	}
 	return socialmedia, nil
 }

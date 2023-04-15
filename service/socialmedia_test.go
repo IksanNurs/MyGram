@@ -46,14 +46,14 @@ func TestSocialMediaServiceGetOneSocialMedia(t *testing.T) {
 	assert.Equal(t, &socialmedia, result, "Result has to be socialmedia data with id '2'")
 }
 
-func TestSocialMediaServiceGetAllSocialMediaNotFound(t *testing.T) {
+func TestSocialMediaServiceGetAllSocialMediaNotAvailble(t *testing.T) {
 	socialmediaRepository.Mock.On("FindAll").Return(nil)
 
 	socialmedia, err := socialmediaService.GetAllSocialMedia()
 
 	assert.Nil(t, socialmedia)
 	assert.NotNil(t, err)
-	assert.Equal(t, "socialmedia not found", err.Error(), "Error response has to be 'socialmedia not found'")
+	assert.Equal(t, "data socialmedia not available", err.Error(), "Error response has to be 'data socialmedia not available'")
 }
 
 func TestSocialMediaServiceGetAllSocialMedia(t *testing.T) {
